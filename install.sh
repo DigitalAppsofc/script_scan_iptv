@@ -14,7 +14,7 @@ W="\033[0m"     # Reset
 # 🔗 CONFIGURAÇÕES DO REPOSITÓRIO
 # ==========================================
 # Cole aqui o link RAW da pasta raiz do seu GitHub onde estão os arquivos .py
-LINK_GITHUB="https://raw.githubusercontent.com/DigitalAppsofc/script_scan_iptv/"
+LINK_GITHUB="https://raw.githubusercontent.com/DigitalAppsofc/script_scan_iptv"
 
 # Nome dos arquivos que serão baixados
 ARQUIVOS=(
