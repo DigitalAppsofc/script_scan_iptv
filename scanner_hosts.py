@@ -25,7 +25,7 @@ def process_hosts_list(urls, threads_limit=15):
         print(f"{R}Nenhuma URL válida.{W}")
         return
 
-    print(f"{C}Iniciando Scanner de {total} Hosts...{W}")
+    print(f"\n{C}Iniciando Scanner de {total} Hosts...{W}")
     online, cloudflare, offline = [], [], []
     processados = 0
 
