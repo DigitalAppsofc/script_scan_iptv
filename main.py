@@ -4,7 +4,7 @@ import time
 import json
 import threading
 from concurrent.futures import ThreadPoolExecutor
-from curl_cffi import requests
+import requests # Mudança aqui
 from urllib3.exceptions import InsecureRequestWarning
 
 import scanner_hosts
@@ -48,7 +48,7 @@ def get_proxies():
 
 def checker_m3u():
     print(f"\n{C}=== 🔍 SCANNER M3U ==={W}")
-    combo_path = input(f"{Y}Caminho da combo (.txt) ou arraste o arquivo aqui: {W}").strip().strip("'").strip('"')
+    combo_path = input(f"{Y}Caminho da combo (.txt): {W}").strip().strip("'").strip('"')
     if not os.path.exists(combo_path):
         print(f"{R}Arquivo não encontrado!{W}")
         time.sleep(2); return
@@ -77,7 +77,8 @@ def checker_m3u():
             px = {"http": f"http://{proxies[processados % len(proxies)]}", "https": f"http://{proxies[processados % len(proxies)]}"} if proxies else None
             
             headers = {"User-Agent": "IPTVSmartersPro", "Accept": "*/*"}
-            resp = requests.get(api_url, proxies=px, headers=headers, timeout=10, verify=False, impersonate="chrome110")
+            # Mudança aqui (removido impersonate)
+            resp = requests.get(api_url, proxies=px, headers=headers, timeout=10, verify=False)
             
             is_hit = False
             if resp.status_code == 200:
@@ -126,7 +127,7 @@ def main():
         print(f"{G}[2]{W} 🌍 Scanner de Hosts")
         print(f"{G}[3]{W} 📺 Leitor de Grade")
         print(f"{G}[4]{W} ☢️ Raio-X de Servidor")
-        print(f"{G}[5]{W} 🛠️ Gerador de Combos")
+        print(f"{G}[5]{W} 🛠️ Gerador de Combos VIP")
         print(f"{G}[6]{W} 📋 Listas IPTV Grátis (Nuvem)")
         print(f"{P}[7]{W} ℹ️  Sobre")
         print(f"{R}[0]{W} ❌ Sair\n")
